@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<p>#{bundle.loginHello}</p>
+	<h:form id="login"
+		onsubmit="document.getElementById('login').action='j_security_check';"
+		prependId="false">
+		<p:growl showDetail="false" life="3000" />
+		<h:panelGrid columns="2">
+			<h:outputLabel value="#{bundle.loginUserName}" />
+			<h:inputText label="Username" id="j_username" required="true">
+				<f:validateLength minimum="6" />
+			</h:inputText>
+			<h:outputLabel value="#{bundle.loginPassword}" />
+			<h:inputSecret label="Password" id="j_password" required="true"
+				autocomplete="off">
+
+				<f:validateLength minimum="6" />
+			</h:inputSecret>
+		</h:panelGrid>
+		<h:commandButton value="Login" ajax="false" />
+	</h:form>
+</h:body>
+</html>
+

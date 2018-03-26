@@ -41,4 +41,11 @@
 		<description />
 		<role-name>ADMIN</role-name>
 	</security-role>
+	<login-config>
+	<auth-method>FORM</auth-method>
+	<form-login-config>
+		<form-login-page>/pages/public/login.xhtml</form-login-page>
+		<form-error-page>/pages/public/accessDenied.xhtml</form-error-page>
+	</form-login-config>
+</login-config>
 </web-app>
