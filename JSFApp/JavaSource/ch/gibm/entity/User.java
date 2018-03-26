@@ -45,6 +45,15 @@ public class User implements Serializable {
 		return false;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 
 
 }

@@ -4,9 +4,22 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+
+
+
 <h:body>
-	<p:commandButton action="/pages/protected/index.xhtml"
+	<h:form id="form">
+		<h1>
+			<h:outputText value="JavaBeat JSF 2.2 Examples" />
+		</h1>
+		<h2>
+			<h:outputText value="JSF2 Form Example" />
+		</h2>
+		<h:outputText value="Enter Greeting Message : " />
+		<h:inputText id="input" value="#{indexBean.userInput}" />
+		<p:commandButton action="/pages/protected/index.xhtml"
 		value="#{bundle.accessDeniedButton}" ajax="false" immediate="true" />
+		<h:outputText value="#{indexBean.userInput}"/>
+	</h:form>
 </h:body>
 </html>
-
