@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<p:dialog widgetVar="personRemoveLanguageDialogWidget" id="personRemoveLanguageDialogId" height="150" width="500" modal="true" closable="true" draggable="false"
+		resizable="false">
+		<h:form id="personRemoveLanguageDialogForm" prependId="false">
+			#{bundle.personRemoveLanguageFrom}: <h:outputText value="#{personBean.personWithLanguages.name}" />
+			<br />
+			<br />
+			<p:commandButton value="#{bundle.remove}" icon="ui-icon-plus" action="#{personBean.removeLanguageFromPerson()}" update=":messageGrowl :personsForm:personsTable"
+				oncomplete="closeDialogIfSucess(xhr, status, args, PF('personRemoveLanguageDialogWidget'), 'personRemoveLanguageDialogId')" />
+			<p:commandButton value="#{bundle.cancel}" icon="ui-icon-cancel" onclick="PF('personRemoveLanguageDialogWidget').hide()" type="button" />
+		</h:form>
+	</p:dialog>
+</h:body>
+</html>

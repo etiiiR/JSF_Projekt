@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<p:dialog widgetVar="personAddLanguageDialogWidget" id="personAddLanguageDialogId" height="150" width="500" modal="true" closable="true" draggable="false"
+		resizable="false">
+		<h:form id="personAddLanguageDialogForm" prependId="false">
+			#{bundle.personAddLanguageTo}: <h:outputText value="#{personBean.personWithLanguages.name}" />
+			<br />
+            <p:autoComplete forceSelection="true" value="#{personBean.language}" label="#{bundle.language}" required="true" var="language"
+				itemLabel="#{language.name}" itemValue="#{language}" completeMethod="#{personBean.getRemainingLanguages}" dropdown="true" />
+			<br />
+			<br />
+
+			<p:commandButton value="#{bundle.add}" icon="ui-icon-plus" action="#{personBean.addLanguageToPerson()}" update=":messageGrowl :personsForm:personsTable"
+				oncomplete="closeDialogIfSucess(xhr, status, args,PF('personAddLanguageDialogWidget'), 'personAddLanguageDialogId')" />
+			<p:commandButton value="#{bundle.cancel}" icon="ui-icon-cancel" onclick="PF('personAddLanguageDialogWidget').hide()" type="button" />
+		</h:form>
+	</p:dialog>
+</h:body>
+</html>

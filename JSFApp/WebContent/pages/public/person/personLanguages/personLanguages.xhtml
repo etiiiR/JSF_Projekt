@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:composition template="/pages/public/templates/master.xhtml">
+		<ui:define name="divMain">
+			<h3>#{bundle.personLanguages}: <h:outputText value="#{personBean.personWithLanguages.name}" /></h3> 
+			<h:form id="personsForm">
+				<p:dataTable id="personsTable" value="#{personBean.personWithLanguages.languages}" var="language" emptyMessage="#{bundle.noRecords}" paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{bundle.languageName}" />
+						</f:facet>
+
+						<h:outputText value="#{language.name}" />
+					</p:column>
+
+					<p:column>
+						<p:commandButton value="#{bundle.remove}" icon="ui-icon-plus" actionListener="#{personBean.resetLanguage}" onclick="PF('personRemoveLanguageDialogWidget').show()" update=":personRemoveLanguageDialogForm" >
+							<f:setPropertyActionListener target="#{personBean.language}" value="#{language}" />
+						</p:commandButton>
+						<p:spacer width="10px" />
+					</p:column>
+
+				</p:dataTable>
+				<p:commandButton value="#{bundle.add}  #{bundle.language}" icon="ui-icon-plus" onclick="PF('personAddLanguageDialogWidget').show()" update=":personAddLanguageDialogForm" />
+			</h:form>
+
+			<ui:include src="/pages/public/person/personLanguages/dialogs/personAddLanguageDialog.xhtml" />
+			<ui:include src="/pages/public/person/personLanguages/dialogs/personRemoveLanguageDialog.xhtml" />
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

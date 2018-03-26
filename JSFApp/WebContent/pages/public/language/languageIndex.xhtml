@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:composition template="/pages/public/templates/master.xhtml">
+		<ui:define name="divMain">
+			<h:form id="languagesForm">
+				<p:dataTable id="languagesTable" value="#{languageBean.allLanguages}" var="language" emptyMessage="#{bundle.noRecords}" paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{bundle.languageName}" />
+						</f:facet>
+
+						<h:outputText value="#{language.name}" />
+					</p:column>
+
+					<p:column>
+						<p:commandButton value="#{bundle.detail}" icon="ui-icon-bullet" onclick="PF('languageDetailDialogWidget').show()" update=":languageDetailDialogForm" >
+							<f:setPropertyActionListener target="#{languageBean.language}" value="#{language}" />
+						</p:commandButton> 
+						<p:spacer width="10px" />
+						<p:commandButton value="#{bundle.update}" icon="ui-icon-pencil" update=":languageUpdateDialogForm" onclick="PF('languageUpdateDialogWidget').show()" >
+							<f:setPropertyActionListener target="#{languageBean.language}" value="#{language}" />
+						</p:commandButton>
+						<p:spacer width="10px" />
+						<p:commandButton value="#{bundle.delete}" icon="ui-icon-trash" update=":languageDeleteDialogForm" onclick="PF('languageDeleteDialogWidget').show()" >
+							<f:setPropertyActionListener target="#{languageBean.language}" value="#{language}" />
+						</p:commandButton>
+					</p:column>
+
+				</p:dataTable>
+				<p:commandButton value="#{bundle.create} #{bundle.language}" icon="ui-icon-plus" update=":languageCreateDialogForm"
+					actionListener="#{languageBean.resetLanguage()}" onclick="PF('languageCreateDialogWidget').show()" />
+			</h:form>
+
+			<ui:include src="/pages/public/language/dialogs/langCreateDialog.xhtml" />
+			<ui:include src="/pages/public/language/dialogs/langDetailDialog.xhtml" />
+			<ui:include src="/pages/public/language/dialogs/langUpdateDialog.xhtml" />
+			<ui:include src="/pages/public/language/dialogs/langDeleteDialog.xhtml" />
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
