@@ -1,11 +1,9 @@
 package ch.gibm.dao;
 
-import java.util.HashMap;
-import java.util.Map;
 
-import ch.gibm.entity.Person;
+
 import ch.gibm.entity.Role;
-import ch.gibm.entity.User;
+
 
 public class RoleDAO extends GenericDAO<Role> {
 
@@ -15,9 +13,7 @@ public class RoleDAO extends GenericDAO<Role> {
 		super(Role.class);
 	}
 
-	public void delete(Role role) {
-        	super.delete(role.getId(), Role.class);
-	}
+	
 	
 
 	

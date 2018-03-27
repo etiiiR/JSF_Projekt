@@ -1,9 +1,5 @@
 package ch.gibm.dao;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import ch.gibm.entity.Person;
 import ch.gibm.entity.User;
 
 public class UserDAO extends GenericDAO<User> {
@@ -14,9 +10,7 @@ public class UserDAO extends GenericDAO<User> {
 		super(User.class);
 	}
 
-	public void delete(User user) {
-        	super.delete(user.getId(), User.class);
-	}
+	
 	
 
 	

@@ -2,21 +2,12 @@ package ch.gibm.bean;
 
 import java.io.Serializable;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-import com.sun.faces.context.flash.ELFlash;
-
-import ch.gibm.entity.Language;
-import ch.gibm.entity.Person;
 import ch.gibm.entity.User;
-import ch.gibm.facade.PersonFacade;
 import ch.gibm.facade.UserFacade;
 
 @SessionScoped

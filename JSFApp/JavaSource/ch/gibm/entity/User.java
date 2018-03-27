@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,32 +12,29 @@ import javax.persistence.Table;
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id")
-	private int id;
 	@Column(name = "user_name")
-	private String Username;
+	private String user_name;
 	@Column(name = "user_pass")
-	private String Password;
-	
-	public String getUsername() {
-		return Username;
+	private String user_pass;
+		
+
+	public String getUser_name() {
+		return user_name;
 	}
 
-	public void setUsername(String username) {
-		Username = username;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
-	public String getPassword() {
-		return Password;
+	public String getUser_pass() {
+		return user_pass;
 	}
 
-	public void setPassword(String password) {
-		Password = password;
+	public void setUser_pass(String user_pass) {
+		this.user_pass = user_pass;
 	}
-	
-	
 
 	public boolean isAdmin() {
 		// TODO Auto-generated method stub
@@ -51,14 +46,7 @@ public class User implements Serializable {
 		return false;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 
 
 
