@@ -10,14 +10,12 @@
 <h:body>
 	<h:form id="form">
 		<h1>
-			<h:outputText value="JavaBeat JSF 2.2 Examples" />
+			<h:outputText value="#{bunlde.missingPermissions}" />
 		</h1>
 		<h2>
-			<h:outputText value="JSF2 Form Example" />
+			<h:outputText value="Gehen Sie auf sofortigen Weg zürck an den Start und ziehen Sie nicht 200 ein. BY MONOPOLY" />
 		</h2>
-		<h:outputText value="Enter Greeting Message : " />
-		<h:inputText id="input" value="#{indexBean.userInput}" />
-		<p:commandButton action="/pages/protected/index.xhtml"
+		<p:commandButton action="/pages/public/index.xhtml"
 		value="#{bundle.accessDeniedButton}" ajax="false" immediate="true" />
 		<h:outputText value="#{indexBean.userInput}"/>
 	</h:form>

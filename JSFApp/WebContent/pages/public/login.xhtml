@@ -5,13 +5,13 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<p>#{bundle.loginHello}</p>
+	<p>#{bundle.loginMessage}</p>
 	<h:form id="login"
 		onsubmit="document.getElementById('login').action='j_security_check';"
 		prependId="false">
 		<p:growl showDetail="false" life="3000" />
 		<h:panelGrid columns="2">
-			<h:outputLabel value="#{bundle.loginUserName}" />
+			<h:outputLabel value="#{bundle.loginUsername}" />
 			<h:inputText label="Username" id="j_username" required="true">
 				<f:validateLength minimum="6" />
 			</h:inputText>
