@@ -5,35 +5,39 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
+@NamedQuery(name = "User.findUserbyName", query = "select u from User u  where name = :name")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+	public static final String FIND_USER_BY_NAME= "User.findUserbyName";
 	
 	@Id
 	@Column(name = "user_name")
-	private String user_name;
+	private String name;
 	@Column(name = "user_pass")
-	private String user_pass;
+	private String pass;
 		
 
-	public String getUser_name() {
-		return user_name;
+	
+
+	public String getName() {
+		return name;
 	}
 
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getUser_pass() {
-		return user_pass;
+	public String getPass() {
+		return pass;
 	}
 
-	public void setUser_pass(String user_pass) {
-		this.user_pass = user_pass;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 	public boolean isAdmin() {

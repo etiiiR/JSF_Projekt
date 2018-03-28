@@ -18,12 +18,14 @@ public class UserFacade {
 
 
 	public User getUserByName(String name) {
-	EntityManagerHelper.beginTransaction();
-	TypedQuery<User> query = EntityManagerHelper.getEntityManager().createQuery(
-			        "SELECT c FROM users c WHERE c.user_name = :name", User.class);
-			    return query.setParameter("name", name).getSingleResult();
-		
+		EntityManagerHelper.beginTransaction();
+		User user = userDAO.searchUserbyName(name);
+		EntityManagerHelper.commitAndCloseTransaction();
+		return user;
 	}
+
+
+
 
 	
 
