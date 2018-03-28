@@ -5,13 +5,15 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
+@NamedQuery(name = "User.findUserbyName", query = "select u from User u  where name = :name")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+	public static final String FIND_USER_BY_NAME= "User.findUserbyName";
 	
 	@Id
 	@Column(name = "user_name")
