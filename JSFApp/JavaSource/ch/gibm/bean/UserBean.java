@@ -26,7 +26,7 @@ public class UserBean implements Serializable {
 
 	public String logout() {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		return "/pages/protected/index?faces-redirect=true";
+		return "/pages/public/index?faces-redirect=true";
 	}
 	
 	
