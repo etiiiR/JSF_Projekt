@@ -28,6 +28,8 @@ public class UserBean implements Serializable {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "/pages/protected/index?faces-redirect=true";
 	}
+	
+	
 
 	public User getUser() {
 		if (user == null) {

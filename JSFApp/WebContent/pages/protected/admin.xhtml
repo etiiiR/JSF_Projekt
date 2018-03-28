@@ -1,12 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" >
-<h:body rendered="#{userBean.admin}">
-	<h1>This is the Admin Zone please be quite</h1>
+<h:body>
+ 
+<h:panelGroup rendered="#{userBean.admin}" id="hello">
+<h1>Du bist Admin please be quite</h1>
+</h:panelGroup>
+
+
+
+	<h1>This is the User page please configure this page on your own as you want</h1>
 	<h:form>
 	<h:outputLabel value="#{userBean.user.name}" />
 	<p:commandButton value="logout" icon="ui-icon-contact" ajax="false"
 							action="#{userBean.logout()}">
+							
+
 								
 						</p:commandButton>
 						</h:form>
