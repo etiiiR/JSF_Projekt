@@ -9,8 +9,13 @@
 
 
 
-	<h1>This is the User page please configure this page on your own as you want</h1>
+	<h1>This is the User page please configure this page on your own as oy</h1>
 	<h:form>
+	
+	<p:commandButton action="/pages/protected/userprofile.xhtml"
+		value="Zu ihrer User Page" ajax="false" immediate="true" />
+	
+	
 	<h:outputLabel value="#{userBean.user.name}" />
 	<p:commandButton value="logout" icon="ui-icon-contact" ajax="false"
 							action="#{userBean.logout()}">
