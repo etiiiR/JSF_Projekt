@@ -20,8 +20,8 @@ public class TestUser {
 		EntityManager entity = EntityManagerHelper.getEntityManager();
 		entity.getTransaction().begin();
 		User user = new User();
-		user.setUser_name("Etienne");
-		user.setUser_pass("Roulet");
+		user.setName("Etienne");
+		user.setPass("Roulet");
 		entity.persist(user);
 		entity.getTransaction().commit();
 		
