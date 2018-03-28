@@ -3,7 +3,13 @@
 	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" >
 <h:body>
 	<h1>This is the Admin Zone please be quite</h1>
+	<h:form>
 	<h:outputLabel value="#{userBean.user.name}" />
+	<p:commandButton value="logout" icon="ui-icon-contact" ajax="false"
+							action="#{userBean.logout()}">
+								
+						</p:commandButton>
+						</h:form>
 </h:body>
 </html>
 
