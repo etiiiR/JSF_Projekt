@@ -2,6 +2,8 @@ package ch.gibm.entity;
 
 import java.io.Serializable;
 
+import javax.faces.context.FacesContext;
+import javax.management.relation.Role;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -41,17 +43,22 @@ public class User implements Serializable {
 	}
 
 	public boolean isAdmin() {
-		// TODO Auto-generated method stub
-		return false;
+		if(FacesContext.getCurrentInstance().getExternalContext().isUserInRole("ADMIN")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-
 	public boolean isUser() {
-		// TODO Auto-generated method stub
-		return false;
+		if(FacesContext.getCurrentInstance().getExternalContext().isUserInRole("USERS")) {
+			return true;
+		} else {
+			
 	}
+		return false;
 
 
-
+	}
 	
 
 
