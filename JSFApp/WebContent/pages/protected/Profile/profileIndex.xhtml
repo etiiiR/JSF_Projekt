@@ -8,7 +8,7 @@
  
  <h:form>
     <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-        <p:outputLabel for="console" value="Basic:" />
+        <p:outputLabel for="console" value="Set Your Team:" />
         <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px">
             <f:selectItem itemLabel="Select One" itemValue="" />
             <f:selectItem itemLabel="Front End Team" itemValue="Front End Tea" />
@@ -16,13 +16,12 @@
             <f:selectItem itemLabel="Grafikteam" itemValue="Grafikteam" />
             <f:selectItem itemLabel="Release Team" itemValue="ReleaseTeam" />
         </p:selectOneMenu>
+        <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
     </h:panelGrid>
- 
-    <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
  
     <p:dialog header="Values" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false">
         <p:panelGrid columns="2" id="display" columnClasses="label,value">
-            <h:outputText value="Basic:" />
+            <h:outputText value="Your Team: " />
             <h:outputText value="#{selectOneMenuView.console}" />
         </p:panelGrid>
     </p:dialog>

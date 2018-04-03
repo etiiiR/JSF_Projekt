@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "users")
@@ -17,6 +18,16 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public static final String FIND_USER_BY_NAME= "User.findUserbyName";
 	
+	@Version
+    private Long version;
+	
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
+	}
 	@Id
 	@Column(name = "user_name")
 	private String name;
@@ -28,8 +39,17 @@ public class User implements Serializable {
 	private String ProfileName;
 	@Column(name = "profil_daarstellung")
 	private String ProfileDaarstellung;
-
+	@Column(name = "fach_team")
+	private String Team;
 	
+
+	public String getTeam() {
+		return Team;
+	}
+
+	public void setTeam(String team) {
+		Team = team;
+	}
 
 	public String getSettings() {
 		return Settings;
