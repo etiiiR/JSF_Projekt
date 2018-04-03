@@ -3,7 +3,6 @@ package ch.gibm.entity;
 import java.io.Serializable;
 
 import javax.faces.context.FacesContext;
-import javax.management.relation.Role;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -33,47 +32,10 @@ public class User implements Serializable {
 	private String name;
 	@Column(name = "user_pass")
 	private String pass;
-	@Column(name = "profil_settings")
-	private String Settings;
-	@Column(name = "profil_name")
-	private String ProfileName;
-	@Column(name = "profil_daarstellung")
-	private String ProfileDaarstellung;
-	@Column(name = "fach_team")
-	private String Team;
+	
 	
 
-	public String getTeam() {
-		return Team;
-	}
-
-	public void setTeam(String team) {
-		Team = team;
-	}
-
-	public String getSettings() {
-		return Settings;
-	}
-
-	public void setSettings(String settings) {
-		Settings = settings;
-	}
-
-	public String getProfileName() {
-		return ProfileName;
-	}
-
-	public void setProfileName(String profileName) {
-		ProfileName = profileName;
-	}
-
-	public String getProfileDaarstellung() {
-		return ProfileDaarstellung;
-	}
-
-	public void setProfileDaarstellung(String profileDaarstellung) {
-		ProfileDaarstellung = profileDaarstellung;
-	}
+	
 
 	public String getName() {
 		return name;
