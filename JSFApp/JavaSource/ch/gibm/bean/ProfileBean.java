@@ -15,7 +15,7 @@ import ch.gibm.facade.ProfileFacade;
 import ch.gibm.facade.UserFacade;
 
 @SessionScoped
-@ManagedBean(name = "userBean")
+@ManagedBean(name = "profileBean")
 public class ProfileBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Profile profile;
@@ -40,4 +40,15 @@ public class ProfileBean implements Serializable {
 	public void setProfile(Profile profile) {
 		this.profile = profile;
 	}
+	
+	public void createProfile() {
+		try {
+			getProfileFacade().createProfile(profile);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 }
