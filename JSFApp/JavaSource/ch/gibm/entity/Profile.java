@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 @Entity
-@Table(name = "user_roles")
+@Table(name = "user_Profile")
 public class Profile implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -35,7 +35,7 @@ public class Profile implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int profileid;
 	
 	private String Infos;
 	private String Fachteam;
@@ -65,13 +65,15 @@ public class Profile implements Serializable {
 		this.user = user;
 	}
 
-	public int getId() {
-		return id;
+	public int getProfileid() {
+		return profileid;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setProfileid(int profileid) {
+		this.profileid = profileid;
 	}
+
+	
 	
 
 

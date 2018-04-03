@@ -4,6 +4,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import ch.gibm.dao.EntityManagerHelper;
+import ch.gibm.entity.Profile;
 import ch.gibm.entity.Role;
 import ch.gibm.entity.User;
 
@@ -34,8 +35,16 @@ public class TestUser {
 		entity2.persist(role);
 		entity2.getTransaction().commit();
 		
+		EntityManager entity3 = EntityManagerHelper.getEntityManager();
+		entity3.getTransaction().begin();
+		Profile profile = new Profile();
+		profile.setFachteam("SAP");
+		profile.setInfos("Hallo i bimbs");
+		profile.setUser(user);
+		entity2.persist(profile);
+		entity2.getTransaction().commit();
+		
+		
 	}
-	
-	
 
 }
