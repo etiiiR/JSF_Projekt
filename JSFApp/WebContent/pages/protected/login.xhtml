@@ -6,22 +6,14 @@
 <h:panelGroup rendered="#{userBean.admin}" id="hello">
 <h1>Du bist Admin please be quite</h1>
 </h:panelGroup>
-
-
-
 	<h1>This is the User page please configure this page on your own as oy</h1>
 	<h:form>
-	
-	<p:commandButton action="/pages/protected/userprofile.xhtml"
-		value="Zu ihrer User Page" ajax="false" immediate="true" />
-	
-	
 	<h:outputLabel value="#{userBean.user.name}" />
 	<p:commandButton value="logout" icon="ui-icon-contact" ajax="false"
 							action="#{userBean.logout()}">
 							
-
-								
+	<p:commandButton action="/pages/protected/Profile/profileIndex.xhtml"
+		value="Zu ihrer User Page" ajax="false" immediate="true" />				
 						</p:commandButton>
 						</h:form>
 </h:body>

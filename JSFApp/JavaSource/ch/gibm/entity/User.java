@@ -22,9 +22,38 @@ public class User implements Serializable {
 	private String name;
 	@Column(name = "user_pass")
 	private String pass;
-		
+	@Column(name = "profil_settings")
+	private String Settings;
+	@Column(name = "profil_name")
+	private String ProfileName;
+	@Column(name = "profil_daarstellung")
+	private String ProfileDaarstellung;
 
 	
+
+	public String getSettings() {
+		return Settings;
+	}
+
+	public void setSettings(String settings) {
+		Settings = settings;
+	}
+
+	public String getProfileName() {
+		return ProfileName;
+	}
+
+	public void setProfileName(String profileName) {
+		ProfileName = profileName;
+	}
+
+	public String getProfileDaarstellung() {
+		return ProfileDaarstellung;
+	}
+
+	public void setProfileDaarstellung(String profileDaarstellung) {
+		ProfileDaarstellung = profileDaarstellung;
+	}
 
 	public String getName() {
 		return name;

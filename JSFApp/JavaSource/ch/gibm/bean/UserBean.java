@@ -30,6 +30,8 @@ public class UserBean implements Serializable {
 	}
 	
 	
+	
+	
 
 	public User getUser() {
 		if (user == null) {

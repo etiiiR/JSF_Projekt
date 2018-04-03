@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:composition template="/pages/public/templates/master.xhtml">
+		<ui:define name="divMain">
+
+ 
+ <h:form>
+    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+        <p:outputLabel for="console" value="Basic:" />
+        <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="Front End Team" itemValue="Front End Tea" />
+            <f:selectItem itemLabel="Java Team" itemValue="JavaTeam" />
+            <f:selectItem itemLabel="Grafikteam" itemValue="Grafikteam" />
+            <f:selectItem itemLabel="Release Team" itemValue="ReleaseTeam" />
+        </p:selectOneMenu>
+    </h:panelGrid>
+ 
+    <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
+ 
+    <p:dialog header="Values" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false">
+        <p:panelGrid columns="2" id="display" columnClasses="label,value">
+            <h:outputText value="Basic:" />
+            <h:outputText value="#{selectOneMenuView.console}" />
+        </p:panelGrid>
+    </p:dialog>
+</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
