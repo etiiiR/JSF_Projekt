@@ -3,6 +3,7 @@ package ch.gibm.dao;
 import java.util.HashMap;
 import java.util.Map;
 
+import ch.gibm.entity.Klasse;
 import ch.gibm.entity.Person;
 
 public class PersonDAO extends GenericDAO<Person> {
@@ -18,6 +19,13 @@ public class PersonDAO extends GenericDAO<Person> {
 		parameters.put("personId", personId);
 
 		return super.findOneResult(Person.FIND_PERSON_BY_ID_WITH_LANGUAGES, parameters);
+	}
+	
+	public Person findPersonWithAllKlassen(int personId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("personId", personId);
+
+		return super.findOneResult(Person.FIND_PERSON_BY_ID_WITH_KLASSEN, parameters);
 	}
 
 	public void delete(Person person) {

@@ -10,6 +10,7 @@ import javax.faces.bean.ViewScoped;
 
 import com.sun.faces.context.flash.ELFlash;
 
+import ch.gibm.entity.Klasse;
 import ch.gibm.entity.Language;
 import ch.gibm.entity.Person;
 import ch.gibm.facade.PersonFacade;
@@ -22,16 +23,20 @@ public class PersonBean extends AbstractBean implements Serializable {
 	private static final String SELECTED_PERSON = "selectedPerson";
 
 	private Language language;
+	private Klasse klasse;
 	private Person person;
 	private Person personWithLanguages;
 	private Person personWithLanguagesForDetail;
-
+	private Person personWithKlassen;
 	@ManagedProperty(value="#{languageBean}")
 	private LanguageBean languageBean;
-	
+	@ManagedProperty(value="#{klasseBean}")
+	private KlasseBean klasseBean;
+
 
 	private List<Person> persons;
 	private PersonFacade personFacade;
+
 
 	public void createPerson() {
 		try {
@@ -88,6 +93,20 @@ public class PersonBean extends AbstractBean implements Serializable {
 			e.printStackTrace();
 		}
 	}
+	
+	public void addKlasseToPerson() {
+		try {
+			getPersonFacade().addKlasseToPerson(klasse.getId(), personWithKlassen.getId());
+			closeDialog();
+			displayInfoMessageToUser("Added with success");
+			reloadPersonWithKlassen();
+			resetKlasse();
+		} catch (Exception e) {
+			keepDialogOpen();
+			displayErrorMessageToUser("A problem occurred while saving. Try again later");
+			e.printStackTrace();
+		}
+	}
 
 	public void removeLanguageFromPerson() {
 		try {
@@ -96,6 +115,20 @@ public class PersonBean extends AbstractBean implements Serializable {
 			displayInfoMessageToUser("Removed with success");
 			reloadPersonWithLanguages();
 			resetLanguage();
+		} catch (Exception e) {
+			keepDialogOpen();
+			displayErrorMessageToUser("A problem occurred while removing. Try again later");
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeKlasseFromPerson() {
+		try {
+			getPersonFacade().removeKlasseFromPerson(klasse.getId(), personWithKlassen.getId());
+			closeDialog();
+			displayInfoMessageToUser("Removed with success");
+			reloadPersonWithKlassen();
+			resetKlasse();
 		} catch (Exception e) {
 			keepDialogOpen();
 			displayErrorMessageToUser("A problem occurred while removing. Try again later");
@@ -111,6 +144,15 @@ public class PersonBean extends AbstractBean implements Serializable {
 
 		return personWithLanguages;
 	}
+	
+	public Person getPersonWithKlassen() {
+		if (personWithKlassen == null) {
+			person = (Person) ELFlash.getFlash().get(SELECTED_PERSON);
+			personWithKlassen = getPersonFacade().findPersonWithAllKlassen(person.getId());
+		}
+
+		return personWithKlassen;
+	}
 
 	public void setPersonWithLanguagesForDetail(Person person) {
 		personWithLanguagesForDetail = getPersonFacade().findPersonWithAllLanguages(person.getId());
@@ -121,7 +163,6 @@ public class PersonBean extends AbstractBean implements Serializable {
 			personWithLanguagesForDetail = new Person();
 			personWithLanguagesForDetail.setLanguages(new ArrayList<Language>());
 		}
-
 		return personWithLanguagesForDetail;
 	}
 
@@ -157,6 +198,10 @@ public class PersonBean extends AbstractBean implements Serializable {
 	public void setLanguageBean(LanguageBean languageBean) {
 		this.languageBean = languageBean;
 	}
+	
+	public void setKlasseBean(KlasseBean klasseBean) {
+		this.klasseBean = klasseBean;
+	}
 
 	public List<Person> getAllPersons() {
 		if (persons == null) {
@@ -171,6 +216,16 @@ public class PersonBean extends AbstractBean implements Serializable {
 		List<Language> res = new ArrayList<Language>(this.languageBean.getAllLanguages());
 		//remove already added languages
 		res.removeAll(personWithLanguages.getLanguages());
+		//remove when name not occurs
+		res.removeIf(l -> l.getName().toLowerCase().contains(name.toLowerCase()) == false);
+		return res;
+	}
+	
+	public List<Klasse> getRemainingKlassen(String name) {
+		//get all languages as copy
+		List<Klasse> res = new ArrayList<Klasse>(this.klasseBean.getAllKlassen());
+		//remove already added languages
+		res.removeAll(personWithKlassen.getKlassen());
 		//remove when name not occurs
 		res.removeIf(l -> l.getName().toLowerCase().contains(name.toLowerCase()) == false);
 		return res;
@@ -192,6 +247,13 @@ public class PersonBean extends AbstractBean implements Serializable {
 		return language;
 	}
 
+	public Klasse getKlasse() {
+		if (klasse == null) {
+			klasse = new Klasse();
+		}
+
+		return klasse;
+	}
 	public void setLanguage(Language language) {
 		this.language = language;
 	}
@@ -199,8 +261,18 @@ public class PersonBean extends AbstractBean implements Serializable {
 	public void resetLanguage() {
 		language = new Language();
 	}
+	
+	public void setKlasse(Klasse klasse) {
+		this.klasse = klasse;
+	}
 
+	public void resetKlasse() {
+		klasse = new Klasse();
+	}
 	private void reloadPersonWithLanguages() {
 		personWithLanguages = getPersonFacade().findPersonWithAllLanguages(person.getId());
+	}
+	private void reloadPersonWithKlassen() {
+		personWithKlassen = getPersonFacade().findPersonWithAllLanguages(person.getId());
 	}
 }
