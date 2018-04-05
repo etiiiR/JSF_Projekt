@@ -30,12 +30,39 @@ public class User implements Serializable {
 	@Id
 	@Column(name = "user_name")
 	private String name;
+	
+	
+	
+	public void setInfos(String infos) {
+		Infos = infos;
+	}
 	@Column(name = "user_pass")
 	private String pass;
 	
+	private String Username;
+	private String Fachteam;
+	private String Infos;
 	
+	
+	public String getUsername() {
+		return Username;
+	}
 
-	
+	public void setUsername(String username) {
+		Username = username;
+	}
+
+	public String getFachteam() {
+		return Fachteam;
+	}
+
+	public void setFachteam(String fachteam) {
+		Fachteam = fachteam;
+	}
+
+	public String getInfos() {
+		return Infos;
+	}
 
 	public String getName() {
 		return name;

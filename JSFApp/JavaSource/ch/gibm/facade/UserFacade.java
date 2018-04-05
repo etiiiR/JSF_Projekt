@@ -24,12 +24,24 @@ public class UserFacade {
 		EntityManagerHelper.commitAndCloseTransaction();
 		return user;
 	}
-
 	
 	
 
-
+	public String getFachteam(String name) {
+		EntityManagerHelper.beginTransaction();
+		User user = userDAO.searchUserbyName(name);
+		EntityManagerHelper.commitAndCloseTransaction();
+		return user.getFachteam();
+	}
 	
+
+
+	public void updateUser(User user) {
+		EntityManagerHelper.beginTransaction();
+		User persistedUser = userDAO.searchUserbyName(user.getName());
+		persistedUser.setFachteam(user.getFachteam());
+		EntityManagerHelper.commitAndCloseTransaction();
+	}
 
 	
 	
