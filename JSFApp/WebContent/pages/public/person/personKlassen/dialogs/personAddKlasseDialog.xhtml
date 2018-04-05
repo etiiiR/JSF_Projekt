@@ -5,7 +5,7 @@
 	<p:dialog widgetVar="personAddKlasseDialogWidget" id="personAddKlasseDialogId" height="150" width="500" modal="true" closable="true" draggable="false"
 		resizable="false">
 		<h:form id="personAddKlasseDialogForm" prependId="false">
-			#{bundle.personAddKlasseTo}: <h:outputText value="#{klasseBean.personWithKlassen.name}" />
+			#{bundle.personAddKlasseTo}: <h:outputText value="#{personBean.personWithKlassen.name}" />
 			<br />
             <p:autoComplete forceSelection="true" value="#{personBean.language}" label="#{bundle.language}" required="true" var="language"
 				itemLabel="#{klasse.name}" itemValue="#{klasse}" completeMethod="#{personBean.getRemainingKlassen}" dropdown="true" />

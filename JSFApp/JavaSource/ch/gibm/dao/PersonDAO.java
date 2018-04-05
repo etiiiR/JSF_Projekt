@@ -3,7 +3,7 @@ package ch.gibm.dao;
 import java.util.HashMap;
 import java.util.Map;
 
-import ch.gibm.entity.Klasse;
+
 import ch.gibm.entity.Person;
 
 public class PersonDAO extends GenericDAO<Person> {

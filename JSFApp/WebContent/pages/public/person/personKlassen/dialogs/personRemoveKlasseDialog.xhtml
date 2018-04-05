@@ -8,7 +8,7 @@
 			#{bundle.personRemoveKlasseFrom}: <h:outputText value="#{personBean.personWithKlassen.name}" />
 			<br />
 			<br />
-			<p:commandButton value="#{bundle.remove}" icon="ui-icon-plus" action="#{personBean.removeKlassenFromPerson()}" update=":messageGrowl :personsForm:personsTable"
+			<p:commandButton value="#{bundle.remove}" icon="ui-icon-plus" action="#{personBean.removeKlasseFromPerson()}" update=":messageGrowl :personsForm:personsTable"
 				oncomplete="closeDialogIfSucess(xhr, status, args, PF('personRemoveKlasseDialogWidget'), 'personRemoveKlasseDialogId')" />
 			<p:commandButton value="#{bundle.cancel}" icon="ui-icon-cancel" onclick="PF('personRemoveKlasseDialogWidget').hide()" type="button" />
 		</h:form>
