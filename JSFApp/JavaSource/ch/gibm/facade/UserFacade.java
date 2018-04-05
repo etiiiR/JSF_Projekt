@@ -1,10 +1,7 @@
 package ch.gibm.facade;
 
-import javax.persistence.TypedQuery;
-
 import ch.gibm.dao.EntityManagerHelper;
 import ch.gibm.dao.UserDAO;
-import ch.gibm.entity.Person;
 import ch.gibm.entity.User;
 
 public class UserFacade {
@@ -36,11 +33,25 @@ public class UserFacade {
 	
 
 
-	public void updateUser(User user) {
+	public void updateFachteam(User user) {
 		EntityManagerHelper.beginTransaction();
 		User persistedUser = userDAO.searchUserbyName(user.getName());
-		persistedUser.setFachteam(user.getFachteam());
+		persistedUser.setFachteam(user.getName());
 		EntityManagerHelper.commitAndCloseTransaction();
+	}
+	
+	public String getUsername(String name) {
+		EntityManagerHelper.beginTransaction();
+		User user = userDAO.searchUserbyName(name);
+		EntityManagerHelper.commitAndCloseTransaction();
+		return user.getUsername();
+	}
+	
+	public String getInfos(String name) {
+		EntityManagerHelper.beginTransaction();
+		User user = userDAO.searchUserbyName(name);
+		EntityManagerHelper.commitAndCloseTransaction();
+		return user.getInfos();
 	}
 
 	

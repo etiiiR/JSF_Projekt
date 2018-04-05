@@ -10,7 +10,22 @@
    <h:form id="Fachteamupdate" prependId="false">
 			<h:panelGrid columns="2">
 				<h:outputText value="Set your Fachteam" />
+				<break></break>	
 				<h:inputText value="#{userBean.fachteam}" required="true" label="Fachteam" />
+		
+				<p:commandButton value="#{bundle.update}" icon="ui-icon-plus"
+					action="#{userBean.updateFachteam()}" />
+					
+				<h:outputText value="Set your Username" />	
+				<break></break>	
+				<h:inputText value="#{userBean.username}" required="true" label="Fachteam" />
+		
+				<p:commandButton value="#{bundle.update}" icon="ui-icon-plus"
+					action="#{userBean.updateFachteam()}" />
+				
+				<h:outputText value="Set your Profile Settings Info"/>
+				<break></break>	
+				<h:inputText value="#{userBean.infos}" required="true" label="Fachteam" />
 		
 				<p:commandButton value="#{bundle.update}" icon="ui-icon-plus"
 					action="#{userBean.updateFachteam()}" />

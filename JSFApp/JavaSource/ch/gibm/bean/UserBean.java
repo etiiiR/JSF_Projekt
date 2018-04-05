@@ -53,9 +53,21 @@ public class UserBean implements Serializable {
 		
 	}
 	
+	public String getUsername() {
+		return getUserFacade().getUserByName(getUser().getName()).getUsername();
+		
+	}
+	
+	public String getInfos() {
+		return getUserFacade().getUserByName(getUser().getName()).getInfos();
+		
+	}
+	
+	
+	
 	public void updateFachteam() {
 		try {
-			getUserFacade().updateUser(user);
+			getUserFacade().updateFachteam(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
