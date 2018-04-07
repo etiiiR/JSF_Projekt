@@ -65,6 +65,8 @@ public class UserBean implements Serializable {
 	
 	
 	
+	
+	
 	public void updateFachteam() {
 		try {
 			getUserFacade().updateFachteam(user);
@@ -73,6 +75,21 @@ public class UserBean implements Serializable {
 		}
 	}
 	
+	public void updateInfos() {
+		try {
+			getUserFacade().updateInfos(getUser());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateUsername() {
+		try {
+			getUserFacade().updateUsername(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	public UserFacade getUserFacade() {
