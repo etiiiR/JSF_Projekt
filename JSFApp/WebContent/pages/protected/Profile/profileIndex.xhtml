@@ -14,24 +14,34 @@
 				<h:inputText value="#{userBean.user.fachteam}" required="true" label="Fachteam" />
 		
 				<p:commandButton value="#{bundle.update}" icon="ui-icon-plus"
-					action="#{userBean.updateFachteam()}" />
-					
+					action="#{userBean.updateFachteam()}"
+					oncomplete="PF('updateInfos').show();" ></p:commandButton>
 				<h:outputText value="Set your Username" />	
 				<break></break>	
 				<h:inputText value="#{userBean.user.username}" required="true" label="Fachteam" />
 		
 				<p:commandButton value="#{bundle.update}" icon="ui-icon-plus"
-					action="#{userBean.updateUsername()}" />
-				
+					action="#{userBean.updateUsername()}"
+					oncomplete="location.reload();" ></p:commandButton>
+					
 				<h:outputText value="Set your Profile Settings Info"/>
 				<break></break>	
+				
 				<h:inputText value="#{userBean.user.infos}" required="true" label="Fachteam" />
 		
+				
 				<p:commandButton value="#{bundle.update}" icon="ui-icon-plus"
-					action="#{userBean.updateInfos()}" />
+					action="#{userBean.updateInfos()}"
+					oncomplete="PF('updateInfos').show();"  ></p:commandButton>
 			</h:panelGrid>
 		</h:form>
 </h:form>
+	<p:dialog widgetVar="updateInfos" header="Update has been sucessfull"  showEffect="explode" hideEffect="bounce"
+		id="updateInfos" height="80" width="400" modal="true"
+		closable="true" draggable="false" resizable="false">
+		<h:outputText value="Your Profil is now setted"/>
+	</p:dialog>
+
 		</ui:define>
 	</ui:composition>
 </h:body>
