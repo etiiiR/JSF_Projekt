@@ -30,8 +30,8 @@ public class KlasseFacade implements Serializable {
 	
 	public void deleteKlasse(Klasse klasse){
 		EntityManagerHelper.beginTransaction();
-		Klasse persistedPersonWithIdOnly = klasseDAO.findReferenceOnly(klasse.getId());
-		klasseDAO.delete(persistedPersonWithIdOnly);
+		Klasse persistedKlasseWithIdOnly = klasseDAO.findReferenceOnly(klasse.getId());
+		klasseDAO.delete(persistedKlasseWithIdOnly);
 		EntityManagerHelper.commitAndCloseTransaction();
 		
 	}
