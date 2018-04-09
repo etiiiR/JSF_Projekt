@@ -57,7 +57,7 @@ public class PersonFacade implements Serializable {
 		EntityManagerHelper.commitAndCloseTransaction();
 		return person;
 	}
-
+	
 	public void addLanguageToPerson(int languageId, int personId) {
 		EntityManagerHelper.beginTransaction();
 		Language language = languageDAO.find(languageId);
@@ -75,4 +75,5 @@ public class PersonFacade implements Serializable {
 		language.getPersons().remove(person);
 		EntityManagerHelper.commitAndCloseTransaction();
 	}
+	
 }

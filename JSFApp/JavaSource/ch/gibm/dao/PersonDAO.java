@@ -3,6 +3,7 @@ package ch.gibm.dao;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import ch.gibm.entity.Person;
 
 public class PersonDAO extends GenericDAO<Person> {
@@ -19,7 +20,7 @@ public class PersonDAO extends GenericDAO<Person> {
 
 		return super.findOneResult(Person.FIND_PERSON_BY_ID_WITH_LANGUAGES, parameters);
 	}
-
+	
 	public void delete(Person person) {
         	super.delete(person.getId(), Person.class);
 	}

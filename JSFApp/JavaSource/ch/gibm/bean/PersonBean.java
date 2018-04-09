@@ -25,13 +25,12 @@ public class PersonBean extends AbstractBean implements Serializable {
 	private Person person;
 	private Person personWithLanguages;
 	private Person personWithLanguagesForDetail;
-
 	@ManagedProperty(value="#{languageBean}")
 	private LanguageBean languageBean;
-	
 
 	private List<Person> persons;
 	private PersonFacade personFacade;
+
 
 	public void createPerson() {
 		try {
@@ -88,6 +87,7 @@ public class PersonBean extends AbstractBean implements Serializable {
 			e.printStackTrace();
 		}
 	}
+	
 
 	public void removeLanguageFromPerson() {
 		try {
@@ -103,6 +103,7 @@ public class PersonBean extends AbstractBean implements Serializable {
 		}
 	}
 
+
 	public Person getPersonWithLanguages() {
 		if (personWithLanguages == null) {
 			person = (Person) ELFlash.getFlash().get(SELECTED_PERSON);
@@ -111,28 +112,32 @@ public class PersonBean extends AbstractBean implements Serializable {
 
 		return personWithLanguages;
 	}
-
+	
 	public void setPersonWithLanguagesForDetail(Person person) {
 		personWithLanguagesForDetail = getPersonFacade().findPersonWithAllLanguages(person.getId());
 	}
+	
+
 
 	public Person getPersonWithLanguagesForDetail() {
 		if (personWithLanguagesForDetail == null) {
 			personWithLanguagesForDetail = new Person();
 			personWithLanguagesForDetail.setLanguages(new ArrayList<Language>());
 		}
-
 		return personWithLanguagesForDetail;
 	}
+	
 
 	public void resetPersonWithLanguagesForDetail() {
 		personWithLanguagesForDetail = new Person();
 	}
+	
 
 	public String editPersonLanguages() {
 		ELFlash.getFlash().put(SELECTED_PERSON, person);
 		return "/pages/public/person/personLanguages/personLanguages.xhtml";
 	}
+
 
 	public PersonFacade getPersonFacade() {
 		if (personFacade == null) {
@@ -157,7 +162,7 @@ public class PersonBean extends AbstractBean implements Serializable {
 	public void setLanguageBean(LanguageBean languageBean) {
 		this.languageBean = languageBean;
 	}
-
+	
 	public List<Person> getAllPersons() {
 		if (persons == null) {
 			loadPersons();
@@ -175,7 +180,7 @@ public class PersonBean extends AbstractBean implements Serializable {
 		res.removeIf(l -> l.getName().toLowerCase().contains(name.toLowerCase()) == false);
 		return res;
 	}
-
+	
 	private void loadPersons() {
 		persons = getPersonFacade().listAll();
 	}
@@ -199,7 +204,7 @@ public class PersonBean extends AbstractBean implements Serializable {
 	public void resetLanguage() {
 		language = new Language();
 	}
-
+	
 	private void reloadPersonWithLanguages() {
 		personWithLanguages = getPersonFacade().findPersonWithAllLanguages(person.getId());
 	}
