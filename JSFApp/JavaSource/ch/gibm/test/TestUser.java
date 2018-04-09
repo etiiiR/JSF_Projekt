@@ -1,3 +1,4 @@
+package ch.gibm.test;
 import javax.persistence.EntityManager;
 
 import org.junit.BeforeClass;
