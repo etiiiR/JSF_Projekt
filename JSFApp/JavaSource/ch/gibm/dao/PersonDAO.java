@@ -21,13 +21,6 @@ public class PersonDAO extends GenericDAO<Person> {
 		return super.findOneResult(Person.FIND_PERSON_BY_ID_WITH_LANGUAGES, parameters);
 	}
 	
-	public Person findPersonWithAllKlassen(int personId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("personId", personId);
-
-		return super.findOneResult(Person.FIND_PERSON_BY_ID_WITH_KLASSEN, parameters);
-	}
-
 	public void delete(Person person) {
         	super.delete(person.getId(), Person.class);
 	}

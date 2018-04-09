@@ -14,13 +14,11 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
 @NamedQuery(name = "Person.findPersonByIdWithLanguages", query = "select p from Person p left join fetch p.languages where p.id = :personId"),
-@NamedQuery(name = "Person.findPersonByIdWithKlassen", query = "select p from Person p left join fetch p.klassen where p.id = :personId")
 }) 
 public class Person implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	public static final String FIND_PERSON_BY_ID_WITH_LANGUAGES = "Person.findPersonByIdWithLanguages";
-	public static final String FIND_PERSON_BY_ID_WITH_KLASSEN = "Person.findPersonByIdWithKlassen";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +27,6 @@ public class Person implements Serializable {
 
 	@ManyToMany
 	private List<Language> languages;
-	@ManyToMany
-	private List<Klasse> klassen;
 
 	public int getId() {
 		return id;
@@ -52,17 +48,11 @@ public class Person implements Serializable {
 		return languages;
 	}
 	
-	public List<Klasse> getKlassen() {
-		return klassen;
-	}
 	
 	public void setLanguages(List<Language> languages) {
 		this.languages = languages;
 	}
 	
-	public void setKlassen(List<Klasse> klassen) {
-		this.klassen = klassen;
-	}
 
 	@Override
 	public int hashCode() {

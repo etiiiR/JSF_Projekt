@@ -7,18 +7,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Klasse implements Serializable{
+@NamedQuery(name = "Klasse.findKlasseByIdWithPersons", query = "select p from Klasse p left join fetch p.klassen where p.id = :klasseId")
+public class Klasse implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+	public static final String FIND_KLASSE_BY_ID_WITH_PERSONS = "Klasse.findKlasseByIdWithPersons";
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 
-	@ManyToMany(mappedBy="klassen")
+	@OneToMany
 	private List<Person> persons;
 
 	public int getId() {
@@ -40,10 +45,12 @@ public class Klasse implements Serializable{
 	public List<Person> getPersons() {
 		return persons;
 	}
-
+	
+	
 	public void setPersons(List<Person> persons) {
 		this.persons = persons;
 	}
+	
 
 	@Override
 	public int hashCode() {
@@ -52,16 +59,11 @@ public class Klasse implements Serializable{
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj instanceof Class) {
-			Klasse klasse = (Klasse) obj;
-			return klasse.getId() == id;
+		if (obj instanceof Klasse) {
+			Klasse person = (Klasse) obj;
+			return person.getId() == id;
 		}
 
 		return false;
-	}
-	
-	@Override
-	public String toString() {
-		return name;
 	}
 }
