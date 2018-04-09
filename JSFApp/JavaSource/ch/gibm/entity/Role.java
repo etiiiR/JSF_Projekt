@@ -9,13 +9,25 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "user_roles")
 public class Role implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Version
+    private Long version;
 	
+	
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
+	}
+
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_name")
 	@Id
