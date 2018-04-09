@@ -20,16 +20,16 @@ public class KlasseFacade implements Serializable{
 
 	public void updateKlasse(Klasse klasse) {
 		EntityManagerHelper.beginTransaction();
-		Klasse persistedLng = klasseDAO.find(klasse.getId());
-		persistedLng.setName(klasse.getName());
-		klasseDAO.update(persistedLng);
+		Klasse persistedKlasse = klasseDAO.find(klasse.getId());
+		persistedKlasse.setName(klasse.getName());
+		klasseDAO.update(persistedKlasse);
 		EntityManagerHelper.commitAndCloseTransaction();
 	}
 	
 	public void deleteKlasse(Klasse klasse) {
 		EntityManagerHelper.beginTransaction();
-		Klasse persistedLng = klasseDAO.findReferenceOnly(klasse.getId());
-		klasseDAO.delete(persistedLng);
+		Klasse persistedKlasse = klasseDAO.findReferenceOnly(klasse.getId());
+		klasseDAO.delete(persistedKlasse);
 		EntityManagerHelper.commitAndCloseTransaction();
 	}
 

@@ -28,6 +28,7 @@ public class PersonBean extends AbstractBean implements Serializable {
 	private Person personWithLanguages;
 	private Person personWithLanguagesForDetail;
 	private Person personWithKlassen;
+	private Person personWithKlassenForDetail;
 	@ManagedProperty(value="#{languageBean}")
 	private LanguageBean languageBean;
 	@ManagedProperty(value="#{klasseBean}")
@@ -157,6 +158,10 @@ public class PersonBean extends AbstractBean implements Serializable {
 	public void setPersonWithLanguagesForDetail(Person person) {
 		personWithLanguagesForDetail = getPersonFacade().findPersonWithAllLanguages(person.getId());
 	}
+	
+	public void setPersonWithKlassenForDetail(Person person) {
+		personWithKlassenForDetail = getPersonFacade().findPersonWithAllKlassen(person.getId());
+	}
 
 	public Person getPersonWithLanguagesForDetail() {
 		if (personWithLanguagesForDetail == null) {
@@ -165,14 +170,31 @@ public class PersonBean extends AbstractBean implements Serializable {
 		}
 		return personWithLanguagesForDetail;
 	}
+	
+	public Person getPersonWithKlassenForDetail() {
+		if (personWithKlassenForDetail == null) {
+			personWithKlassenForDetail = new Person();
+			personWithKlassenForDetail.setKlassen(new ArrayList<Klasse>());
+		}
+		return personWithKlassenForDetail;
+	}
 
 	public void resetPersonWithLanguagesForDetail() {
 		personWithLanguagesForDetail = new Person();
+	}
+	
+	public void resetPersonWithKlassenForDetail() {
+		personWithKlassenForDetail = new Person();
 	}
 
 	public String editPersonLanguages() {
 		ELFlash.getFlash().put(SELECTED_PERSON, person);
 		return "/pages/public/person/personLanguages/personLanguages.xhtml";
+	}
+	
+	public String editPersonKlassen() {
+		ELFlash.getFlash().put(SELECTED_PERSON, person);
+		return "/pages/public/person/personKlassen/personKlassen.xhtml";
 	}
 
 	public PersonFacade getPersonFacade() {

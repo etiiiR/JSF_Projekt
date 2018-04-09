@@ -5,7 +5,7 @@
 	<ui:composition template="/pages/public/templates/master.xhtml">
 		<ui:define name="divMain">
 			<h:form id="klassenForm">
-				<p:dataTable id="klassenTable" value="#{klasseBean.allKlassen}" var="class" emptyMessage="#{bundle.noRecords}" paginator="true" rows="10"
+				<p:dataTable id="klassenTable" value="#{klasseBean.allKlassen}" var="klasse" emptyMessage="#{bundle.noRecords}" paginator="true" rows="10"
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 					rowsPerPageTemplate="5,10,15">
 					<p:column>
