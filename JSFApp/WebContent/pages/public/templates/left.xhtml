@@ -18,6 +18,8 @@
 			<br />
 			<p:commandButton styleClass="menuButton" icon="ui-icon-arrowstop-1-e" rendered="true" action="/pages/protected/login.xhtml?faces-redirect=true" value="Admin/User" ajax="false" immediate="true" />
 			<br />
+			<br></br>
+			<p:commandButton value="logout" icon="ui-icon-contact" ajax="false" action="#{userBean.logout()}"></p:commandButton>
 		</h:form>
 	</ui:composition>
 </h:body>
