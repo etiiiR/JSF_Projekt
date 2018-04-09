@@ -31,6 +31,7 @@
 			<description />
 			<role-name>USERS</role-name>
 			<role-name>ADMIN</role-name>
+			<role-name>OWNER</role-name>
 		</auth-constraint>
 	</security-constraint>
 	<security-role>
@@ -40,6 +41,10 @@
 	<security-role>
 		<description />
 		<role-name>ADMIN</role-name>
+	</security-role>
+	<security-role>
+		<description />
+		<role-name>OWNER</role-name>
 	</security-role>
 	<login-config>
 	<auth-method>FORM</auth-method>

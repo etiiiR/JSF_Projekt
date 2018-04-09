@@ -28,6 +28,10 @@ public class UserBean implements Serializable {
 	public boolean isDefaultUser() {
 		return this.getUser() != null ? user.isUser() : false;
 	}
+	
+	public boolean isOwer() {
+		return this.getUser() != null ? user.isOwner() : false;
+	}
 
 	public String logout() {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();

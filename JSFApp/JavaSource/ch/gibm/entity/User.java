@@ -97,6 +97,15 @@ public class User implements Serializable {
 
 
 	}
+
+	public boolean isOwner() {
+		if(FacesContext.getCurrentInstance().getExternalContext().isUserInRole("OWNER")) {
+			return true;
+		} else {
+			
+	}
+		return false;
+	}
 	
 
 
