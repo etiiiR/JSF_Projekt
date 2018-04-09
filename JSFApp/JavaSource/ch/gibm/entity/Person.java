@@ -8,16 +8,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Version;
 
 @Entity
-
 @NamedQuery(name = "Person.findPersonByIdWithLanguages", query = "select p from Person p left join fetch p.languages where p.id = :personId")
 public class Person implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	public static final String FIND_PERSON_BY_ID_WITH_LANGUAGES = "Person.findPersonByIdWithLanguages";
+
+	@Version
+    private Long version;
+	
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,12 +56,10 @@ public class Person implements Serializable {
 	public List<Language> getLanguages() {
 		return languages;
 	}
-	
-	
+
 	public void setLanguages(List<Language> languages) {
 		this.languages = languages;
 	}
-	
 
 	@Override
 	public int hashCode() {
