@@ -12,7 +12,7 @@
 			<br />
 			<br />
 
-			<p:commandButton value="#{bundle.add}" icon="ui-icon-plus" action="#{klasseBean.addPersonToKlasse()}" update=":messageGrowl :personsForm:personsTable"
+			<p:commandButton value="#{bundle.add}" icon="ui-icon-plus" action="#{klasseBean.addPersonToKlasse()}" update=":messageGrowl :klassenForm:klassenTable"
 				oncomplete="closeDialogIfSucess(xhr, status, args,PF('klasseAddPersonDialogWidget'), 'klasseAddPersonDialogId')" />
 			<p:commandButton value="#{bundle.cancel}" icon="ui-icon-cancel" onclick="PF('klasseAddPersonDialogWidget').hide()" type="button" />
 		</h:form>

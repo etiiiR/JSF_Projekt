@@ -47,7 +47,6 @@ public class KlasseFacade implements Serializable {
 		EntityManagerHelper.beginTransaction();
 		List<Klasse> result = klasseDAO.findAll();
 		EntityManagerHelper.commitAndCloseTransaction();
-
 		return result;
 	}
 

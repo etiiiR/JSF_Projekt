@@ -4,11 +4,11 @@
 <h:body>
 	<p:dialog widgetVar="klasseRemovePersonDialogWidget" id="klasseRemovePersonDialogId" height="150" width="500" modal="true" closable="true" draggable="false"
 		resizable="false">
-		<h:form id="personRemoveLanguageDialogForm" prependId="false">
+		<h:form id="klasseRemovePersonDialogForm" prependId="false">
 			#{bundle.klasseRemovePersonFrom}: <h:outputText value="#{klasseBean.klasseWithPersons.name}" />
 			<br />
 			<br />
-			<p:commandButton value="#{bundle.remove}" icon="ui-icon-plus" action="#{klasseBean.removePersonFromKlasse()}" update=":messageGrowl :personsForm:personsTable"
+			<p:commandButton value="#{bundle.remove}" icon="ui-icon-plus" action="#{klasseBean.removePersonFromKlasse()}" update=":messageGrowl :klassenForm:klassenTable"
 				oncomplete="closeDialogIfSucess(xhr, status, args, PF('klasseRemovePersonDialogWidget'), 'klasseRemovePersonDialogId')" />
 			<p:commandButton value="#{bundle.cancel}" icon="ui-icon-cancel" onclick="PF('klasseRemovePersonDialogWidget').hide()" type="button" />
 		</h:form>

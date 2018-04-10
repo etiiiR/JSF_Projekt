@@ -5,8 +5,8 @@
 	<ui:composition template="/pages/public/templates/master.xhtml">
 		<ui:define name="divMain">
 			<h3>#{bundle.klassePersons}: <h:outputText value="#{klasseBean.klasseWithPersons.name}" /></h3> 
-			<h:form id="personsForm">
-				<p:dataTable id="personsTable" value="#{klasseBean.klasseWithPersons.persons}" var="person" emptyMessage="#{bundle.noRecords}" paginator="true" rows="10"
+			<h:form id="klassenForm">
+				<p:dataTable id="klassenTable" value="#{klasseBean.klasseWithPersons.persons}" var="person" emptyMessage="#{bundle.noRecords}" paginator="true" rows="10"
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 					rowsPerPageTemplate="5,10,15">
 					<p:column>
@@ -18,14 +18,14 @@
 					</p:column>
 
 					<p:column>
-						<p:commandButton value="#{bundle.remove}" icon="ui-icon-plus" actionListener="#{klasseBean.resetPerson}" onclick="PF('klasseRemovePersonDialogWidget').show()" update=":personRemoveLanguageDialogForm" >
+						<p:commandButton value="#{bundle.remove}" icon="ui-icon-plus" actionListener="#{klasseBean.resetPerson}" onclick="PF('klasseRemovePersonDialogWidget').show()" update=":klasseRemovePersonDialogForm" >
 							<f:setPropertyActionListener target="#{klasseBean.person}" value="#{person}" />
 						</p:commandButton>
 						<p:spacer width="10px" />
 					</p:column>
 
 				</p:dataTable>
-				<p:commandButton value="#{bundle.add}  #{bundle.person}" icon="ui-icon-plus" onclick="PF('klasseAddPersonDialogWidget').show()" update=":personAddLanguageDialogForm" />
+				<p:commandButton value="#{bundle.add}  #{bundle.person}" icon="ui-icon-plus" onclick="PF('klasseAddPersonDialogWidget').show()" update=":klasseAddPersonDialogForm" />
 			</h:form>
 
 			<ui:include src="/pages/public/klasse/klassePersons/dialogs/klasseAddPersonDialog.xhtml" />

@@ -8,24 +8,24 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
-import ch.gibm.entity.Klasse;
-import ch.gibm.facade.KlasseFacade;
+import ch.gibm.entity.Person;
+import ch.gibm.facade.PersonFacade;
 
-@FacesConverter(forClass = ch.gibm.entity.Klasse.class)
-public class KlasseConverter implements Converter {
+@FacesConverter(forClass = ch.gibm.entity.Person.class)
+public class PersonConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String arg2) {
-		KlasseFacade klasseFacade = new KlasseFacade();
+		PersonFacade PersonFacade = new PersonFacade();
 		int langId;
 
 		try {
 			langId = Integer.parseInt(arg2);
 		} catch (NumberFormatException exception) {
-			throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Type the name of a klasse and select it (or use the dropdown)", "Type the name of a klasse and select it (or use the dropdown)"));
+			throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Type the name of a Person and select it (or use the dropdown)", "Type the name of a Person and select it (or use the dropdown)"));
 		}
 
-		return klasseFacade.findKlasse(langId);
+		return PersonFacade.findPerson(langId);
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class KlasseConverter implements Converter {
 		if (arg2 == null) {
 			return "";
 		}
-		Klasse lang = (Klasse) arg2;
+		Person lang = (Person) arg2;
 		return String.valueOf(lang.getId());
 	}
 }
