@@ -2,7 +2,6 @@ package ch.gibm.facade;
 
 import ch.gibm.dao.EntityManagerHelper;
 import ch.gibm.dao.UserDAO;
-import ch.gibm.entity.Person;
 import ch.gibm.entity.User;
 
 public class UserFacade {
