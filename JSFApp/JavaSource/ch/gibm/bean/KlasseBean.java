@@ -155,7 +155,7 @@ public class KlasseBean extends AbstractBean implements Serializable {
 		return klasse;
 	}
 
-	public void setPerson(Klasse klasse) {
+	public void setKlasse(Klasse klasse) {
 		this.klasse = klasse;
 	}
 	
