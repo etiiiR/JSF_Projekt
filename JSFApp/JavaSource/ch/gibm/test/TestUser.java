@@ -23,6 +23,9 @@ public class TestUser {
 		User user = new User();
 		user.setName("User");
 		user.setPass("User");
+		user.setFachteam("JAVA");
+		user.setInfos("Ich bin ein JAVA programmierer");
+		user.setUsername("User Kasper");
 		entity.persist(user);
 		entity.getTransaction().commit();
 		
@@ -40,6 +43,9 @@ public class TestUser {
 		User user2 = new User();
 		user2.setName("Admin");
 		user2.setPass("Admin");
+		user2.setFachteam("SAP");
+		user2.setInfos("Ich bin ein SAP programmierer");
+		user2.setUsername("Admin CHEFETI");
 		entity3.persist(user2);
 		entity3.getTransaction().commit();
 		
@@ -57,6 +63,9 @@ public class TestUser {
 		User user3 = new User();
 		user3.setName("Owner");
 		user3.setPass("Onwer");
+		user3.setFachteam("JS");
+		user3.setInfos("Ich bin ein JS programmierer");
+		user3.setUsername("Admin KETTI");
 		entity5.persist(user3);
 		entity5.getTransaction().commit();
 		
@@ -68,8 +77,7 @@ public class TestUser {
 		role3.setUser(user3);
 		entity6.persist(role3);
 		entity6.getTransaction().commit();
-		
-		
+	
 		
 	}
 
