@@ -62,7 +62,7 @@ public class TestUser {
 		entity5.getTransaction().begin();
 		User user3 = new User();
 		user3.setName("Owner");
-		user3.setPass("Onwer");
+		user3.setPass("Owner");
 		user3.setFachteam("JS");
 		user3.setInfos("Ich bin ein JS programmierer");
 		user3.setUsername("Admin KETTI");
