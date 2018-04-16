@@ -7,9 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import ch.gibm.entity.Person;
 import ch.gibm.entity.User;
-import ch.gibm.facade.PersonFacade;
 import ch.gibm.facade.UserFacade;
 
 

@@ -1,6 +1,5 @@
 package ch.gibm.dao;
 
-import ch.gibm.entity.Person;
 import ch.gibm.entity.User;
 
 import java.util.HashMap;
